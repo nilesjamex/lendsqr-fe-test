@@ -5,7 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Header from "./Layout/Header";
 import Sidebar from "./Layout/Sidebar/index";
 import Login from "./Components/Login/index";
-import User from "./Components/User/index";
+import User from "./pages/User";
 function App() {
   const [active, setactive] = useState<boolean>(false);
   const open = () => {
