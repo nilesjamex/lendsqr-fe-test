@@ -8,7 +8,7 @@ import { AnimatePresence } from 'framer-motion'
 import Blacklist from '../Modals/Blacklist'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import ContentLoader, { Facebook, IContentLoaderProps } from "react-content-loader"
+import ContentLoader, { IContentLoaderProps } from "react-content-loader"
 
 const User = () => {
     const {Id} = useParams()
