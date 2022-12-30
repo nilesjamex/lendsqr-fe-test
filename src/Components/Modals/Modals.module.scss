@@ -1,0 +1,31 @@
+@import '../../styles//mixins';
+@import '../../styles//utils';
+@import '../../styles/variables';
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(95, 94, 94, 0.5);
+    @extend %grid-items;
+    &__info {
+        nav {
+            @include flex(flex-end, center);
+            margin-bottom: 1rem;
+            p {
+                font-weight: 700;
+                color: $black;
+                cursor: pointer;
+            }
+        }
+        padding: 0.7rem 2rem;
+        background-color: $white;
+        font-family: 'Work Sans', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: Max(1rem, 16px);
+        line-height: Max(1.188rem, 19px);
+        color: $blue-1;
+    }
+}
