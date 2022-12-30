@@ -1,0 +1,101 @@
+@import '../../styles/mixins';
+@import '../../styles/utils';
+@import '../../styles/variables';
+
+.side {
+    width: 283px;
+    height: calc(100vh - 100px);
+    @include respondMax('tablet2x') {
+        height: calc(100vh - 50px);
+    }
+    background-color: $white;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    padding: 1.5rem 0;
+    overflow: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+        appearance: none;
+    }
+        @include respondMax('tablet2x') {
+            position: fixed;
+          width: 100%;
+        }
+    &__head {
+        @extend %flex-ac;
+        gap: 0.75rem;
+        padding-left: 2rem;
+        p {
+            font-family: 'Work Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: Max(16px, 1rem);
+            line-height: Max(1.1875rem, 19px);
+            color: $blue-1;
+        }
+    }
+    &__home {
+        @extend %flex-ac;
+        gap: 0.75rem;
+        margin: 3.5rem 0 3rem;
+        padding-left: 2rem;
+        p {
+            font-family: 'Work Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: Max(16px, 1rem);
+            line-height: Max(1.1875rem, 19px);
+            color: $text-3;
+        }
+    }
+    &__menu {
+        margin-bottom: 2rem;
+        h4 {
+            font-family: 'Work Sans', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: Max(0.75rem, 12px);
+            line-height: Max(0.675rem, 14px);
+            color: $text-1;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            font-family: 'Work Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: Max(1rem, 16px);
+            line-height: Max(1.1875rem, 19px);
+            color: $text-3;
+            height: Max(2.5rem, 40px);
+            @extend %flex-ac;
+            gap: 1rem;
+            margin: 0.5rem 0;
+            padding-left: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &.active {
+                border-left: 3px solid $l-blue;
+                background-color: #F3FCFC;
+                transition: all 0.3s ease-in-out;
+                color: $blue-1;
+            }
+        }
+    }
+    &__logout {
+        h5 {
+            font-family: 'Work Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: Max(1rem, 16px);
+            line-height: Max(1.1875rem, 19px);
+            color: $blue-1;
+            height: Max(2.5rem, 40px);
+            @extend %flex-ac;
+            gap: 1rem;
+            margin: 0.5rem 0;
+            padding-left: 2rem;
+            cursor: pointer;
+        }
+    }
+}
