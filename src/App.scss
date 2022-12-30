@@ -1,0 +1,36 @@
+
+.App {
+  display: flex;
+  position: relative;
+}
+.menu {
+  width: 283px;
+  max-width: 283px;
+  position: relative;
+}
+.side {
+  width: 100%;
+  overflow: auto;
+  position: relative;
+}
+@media screen and (max-width: 992px) {
+  .menu {
+      // overflow: auto;
+      max-width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      transform: translateX(-100);
+      position: absolute;
+      z-index: 3;
+      transition: all 0.5s ease-in-out;
+      &__active {
+          transition: all 0.5s ease-in-out;
+          transform: translateX(0);
+          z-index: 3;
+          background-color: red;
+        }
+  }
+}

@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.scss";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Header from "./Layout/Header";
+import Sidebar from "./Layout/Sidebar/index";
+import Login from "./Components/Login/index";
+import User from "./Components/User/index";
 function App() {
+  const [active, setactive] = useState<boolean>(false);
+  const open = () => {
+    setactive(!active);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      {window.sessionStorage.getItem("user") === "authenticated" && (
+        <Header open={open} />
+      )}
+      <div className="App">
+        <div
+          className={
+            window.sessionStorage.getItem("user") === "authenticated"
+              ? active
+                ? "menu"
+                : "menu__active"
+              : ""
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {window.sessionStorage.getItem("user") === "authenticated" && (
+            <Sidebar open={open} />
+          )}
+        </div>
+        <div className="side">
+          <Router>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard">
+                <Route path=":Id" element={<User />} />
+              </Route>
+            </Routes>
+          </Router>
+        </div>
+      </div>
+    </>
   );
 }
 
 export default App;
+
+// const RouterPage = (
+//   props: { pageComponent: JSX.Element } & RouteComponentProps
+// ) => props.pageComponent;
