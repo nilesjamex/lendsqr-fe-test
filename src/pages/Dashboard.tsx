@@ -1,9 +1,16 @@
 import React from 'react'
-import Dash from '../Components/Dashboard/index'
+import Spinner from "../Layout/Spinner/index"
+// import Dash from '../Components/Dashboard/index'
 
 const Dashboard = () => {
+   // lazy load dashboard
+   const OtherTable = React.lazy(() => import('../Components/Dashboard/index'))
   return (
-    <Dash />
+    <React.Suspense fallback={<Spinner />}>
+      <div>
+        <OtherTable />
+      </div>
+    </React.Suspense>
   )
 }
 
