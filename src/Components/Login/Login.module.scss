@@ -1,0 +1,164 @@
+@import '../../styles//mixins';
+@import '../../styles//utils';
+@import '../../styles/variables';
+.login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    overflow: auto;
+    background-color: $white;
+    @include respondMax('desktop') {
+        grid-template-columns: 1fr;
+    }
+    &__logo {
+        width: 100%;
+        // height: 100vh;
+        padding: 2rem;
+        &>div {
+            height: calc(100vh - 10rem - 30px);
+            @extend %grid-content;
+            @include respondMax('desktop') {
+                height: auto;
+            }
+        }
+        @include respondMax('desktop') {
+            padding: 1rem 2rem;
+        }
+        img {
+            &.logo {
+                margin-left: 4rem;
+                margin-top: 3rem;
+                margin-bottom: 2rem;
+            }
+            &.pablo {
+                @include respondMax('desktop') {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &__details {
+        box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
+        @extend %grid-content;
+        width: 100%;
+        @include respondMax('desktop') {
+            padding: 1rem 2rem;
+            display: unset;
+            text-align: center;;
+        }
+        &__intro {
+            h4 {
+                font-family: Avenir, 'sans-serif';
+                font-style: normal;
+                font-weight: 700;
+                font-size: Max(2.5rem, 40px);
+                line-height: Max(3.438rem, 55px);
+                letter-spacing: -0.04em;
+                color: $blue-1;
+            }
+            p {
+                font-family: Avenir, sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: Max(1.25rem, 20px);
+                line-height: Max(1.688rem, 27px);
+                color: $text-1;
+            }
+        }
+        form {
+            margin-top: 4rem;
+            width: Max(27.938rem, 447px);
+            @include respondMax('desktop') {
+                width: 100%;
+            }
+            input[type = email] {
+                width: 100%;
+                height: Max(3.125rem, 50px);
+                background: #FFFFFF;
+                border: 2px solid rgba(84, 95, 125, 0.15);
+                border-radius: 5px;
+                background-color: transparent;
+                margin-bottom: 1.5rem;
+                font-family: Avenir, sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: Max(1rem, 16px);
+                line-height: Max(1.188rem, 19px);
+                color: $text-1;
+                &:focus {
+                    outline: none;
+                    background-color: transparent;
+                }
+                &::placeholder {
+                    font-family: Avenir, sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: Max(0.875rem, 14px);
+                    line-height: Max(1.188rem, 19px);
+                    color: $text-1;
+                    opacity: 0.6;
+                }
+            }
+            .pass {
+                width: 100%;
+                height: Max(3.125rem, 50px);
+                background: #FFFFFF;
+                border: 2px solid rgba(84, 95, 125, 0.15);
+                border-radius: 5px;
+                background-color: transparent;
+                margin-bottom: 1.5rem;
+                @extend %flex-ac;
+                input[type = password], input[type = text] {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    background-color: transparent;
+                    font-family: Avenir, sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: Max(1rem, 14px);
+                    line-height: Max(1.188rem, 19px);
+                    color: $text-1;
+                    &::placeholder {
+                        font-family: Avenir, sans-serif;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: Max(1rem, 14px);
+                        line-height: Max(1.188rem, 19px);
+                        color: $text-1;
+                        opacity: 0.6;
+                    }
+                }
+                span {
+                    padding-right: 12px;
+                    font-family: Avenir, sans-serif;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: Max(0.75rem, 12px);
+                    line-height: Max(1rem, 16px);
+                    text-align: center;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: $l-blue;
+                    cursor: pointer;
+                }
+            }
+            p {
+                font-family: Avenir, sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: Max(0.75rem, 12px);
+                line-height: Max(1rem, 16px);
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: $l-blue;
+                margin-bottom: 2rem;
+            }
+            button {
+                background-color: $l-blue;
+                border-radius: 8px;
+                height: Max(3rem, 48px);
+            }
+        }
+    }
+}
