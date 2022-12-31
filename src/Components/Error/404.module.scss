@@ -4,8 +4,11 @@
 .blob {
     &__container {
         width: 100%;
-        height: 100%;
+        height: calc(100vh - 6vh);
         @extend %flex-ac-jc;
+        @include respondMax("tablet2x") {
+            height: calc(100vh - 6vh);
+        }
     }
     &__content {
         p {
