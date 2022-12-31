@@ -352,9 +352,9 @@ const Sidebar = ({open}: Props) => {
     const log = React.useRef() as React.MutableRefObject<HTMLAnchorElement>;
 
     const onClick = () => {
-        open();
         log.current.click()
         window.sessionStorage.setItem('user', 'unauthenticated')
+        open();
     }
     // const move = (value: number) => {
     //     open();setOne(value); setTwo(null); setThree(null);
