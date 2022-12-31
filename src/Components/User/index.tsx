@@ -129,8 +129,8 @@ const User = () => {
                         </span>
                     </div> : <MyLoader /> }
                     <div>
-                    <h5>₦{profile.firstName ? data.accountBalance : <MyLoader />}</h5>
-                        <span>{profile.firstName ? profile.bvn : <MyLoader />}/Providus Bank</span>
+                    {profile.firstName ?<h5>₦ {data.accountBalance}</h5>  : <MyLoader />}
+                    {profile.firstName ? <span>{profile.bvn}/Providus Bank</span> : <MyLoader />}
                     </div>
                 </div>
             </div>
