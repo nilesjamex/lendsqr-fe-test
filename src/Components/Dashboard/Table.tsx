@@ -18,6 +18,7 @@ const Table = () => {
     const [currentPage, setCurrentPage] = useState<number>(1)
     const [postPerPage, setPostPerPage] = useState<number>(10)
     const [showNumber, setShowNumber] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(true)
 
     const navigate = useNavigate()
     const page: {
@@ -41,10 +42,12 @@ const Table = () => {
       ]
 
     const getData =  () => {
+      setLoading(false)
          axios.get("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
          .then((response) => {
             const user = response.data
            setData(user)
+           setLoading(true)
          })
     }
     useEffect(() => {
@@ -104,8 +107,8 @@ const Table = () => {
                 {showFilter && <Sort />}
                 </AnimatePresence>
             </thead>
-            {currentPosts.map((item: any, index: React.Key | null | undefined) => (
-                <tbody className={styles.dash__table__body} key={index}>
+            {loading ? currentPosts.map((item: any, index: React.Key | null | undefined) => (
+               <tbody className={styles.dash__table__body} key={index}>
                 <tr className={styles.dash__table__body__main}>
                     <td>{item.orgName}</td>
                     <td>{item.userName}</td>
@@ -146,7 +149,15 @@ const Table = () => {
                }
                 </AnimatePresence>
             </tbody>
-            ))}
+            )): 
+            <tbody>
+              <tr><td>
+                <div className={styles.dots__container}>
+                <div className={styles.dots}></div>
+                </div>
+                </td></tr>
+            </tbody>
+            }
         </table>
     </section>
     <div className={styles.dash__pagination}>
