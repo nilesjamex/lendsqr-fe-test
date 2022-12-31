@@ -6,6 +6,7 @@ import Header from "./Layout/Header";
 import Sidebar from "./Layout/Sidebar/index";
 import Login from "./Components/Login/index";
 import User from "./pages/User";
+import Error from "./Components/Error/error";
 function App() {
   const [active, setactive] = useState<boolean>(false);
   const open = () => {
@@ -39,6 +40,7 @@ function App() {
               <Route path="/users">
                 <Route path=":Id" element={<User />} />
               </Route>
+              <Route path="*" element={<Error />} />
             </Routes>
           
         </div>
