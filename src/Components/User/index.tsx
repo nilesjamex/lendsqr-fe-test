@@ -91,7 +91,7 @@ const User = () => {
         <AnimatePresence>
         {blacklist && <Blacklist closeBlacklist={closeBlacklist} />}
         </AnimatePresence>
-        <Link to={'/dashboard'}>
+        <Link to={'/users'}>
         <span className={styles.back}>
             <img src={Back} alt="" />
             Back to Users
