@@ -34,7 +34,7 @@ const Login = () => {
     })
     window.sessionStorage.setItem('user', 'authenticated')
     getIn?.current?.click()
-    navigate('/dashboard')
+    navigate('/users')
     }
   return (
     <section className={styles.login}>
@@ -58,7 +58,7 @@ const Login = () => {
                 <span onClick={() => {setActive(!active)}}>SHOW</span>
                 </div>
                 <p>Forgot PASSWORD?</p>
-                <a ref={getIn } href="/dashboard" style={{display: "none"}}></a>
+                <a ref={getIn } href="/users" style={{display: "none"}}></a>
                 <button type='submit'>LOG IN</button>
             </form>
         </div>
