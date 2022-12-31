@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from "./header.module.scss"
 // import images
-import Logo from "../Assets/svg/logo.svg"
+// import Logo from "../Assets/svg/logo.svg"
 import Search from "../Assets/svg/search.svg" 
 import Toast from '../Assets/svg/toast.svg'
 import Profile from '../Assets/user.png'
@@ -25,7 +25,7 @@ const Header = ({open}:Props) => {
             <div></div>
             <div></div>
           </div>
-        <img src={Logo} alt="" />
+        <img src="https://res.cloudinary.com/dx9pt4ggx/image/upload/v1672478099/Lendsqr/logo.418b9fe26a6cecd1406016183427a911_cu6flc.svg" alt="" />
         </div>
         <div className={styles.nav__main}>
         <div className={styles.nav__input}>
