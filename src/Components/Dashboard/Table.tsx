@@ -129,7 +129,7 @@ const Table = () => {
                 {active === item.id &&
                 <motion.div className={styles.dash__table__body__sub} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 120}} transition={{ duration: 0.5 }} exit={{ opacity: 0, height: 0 }}>
                   
-                    <span onClick={() => {navigate(`/dashboard/${item.id}`)}}>
+                    <span onClick={() => {navigate(`/users/${item.id}`)}}>
                         <img src={Eyes} alt="" />
                         View Details
                     </span>
