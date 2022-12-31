@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './Login.module.scss'
 // import images
 import Logo from '../../Assets/svg/logo.svg'
-import Pablo from '../../Assets/pablo2.svg'
+// import Pablo from '../../Assets/pablo2.svg'
 import { useNavigate } from 'react-router-dom'
 const Login = () => {
     const getIn = React.useRef() as React.MutableRefObject<HTMLAnchorElement>;
@@ -41,7 +41,7 @@ const Login = () => {
         <div className={styles.login__logo}>
             <img className={styles.logo} src={Logo} alt="" />
             <div>
-              <img className={styles.pablo} width="600" height="338" src={Pablo} alt="" />
+              <img className={styles.pablo} width="600" height="338" src="https://res.cloudinary.com/dx9pt4ggx/image/upload/v1672442211/Lendsqr/pablo-sign-in_1_1_ipeaal.png" alt="" />
             </div>
             
         </div>
