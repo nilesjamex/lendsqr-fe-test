@@ -6,6 +6,7 @@ import Brief from '../../Assets/Sidebar/briefcase.svg'
 import Arr from '../../Assets/Sidebar/arrow.svg'
 import Home from '../../Assets/Sidebar/home.svg'
 import Logout from '../../Assets/svg/logout.svg'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 interface Props {
     open?:any
@@ -13,9 +14,12 @@ interface Props {
   }
 
 const Sidebar = ({open}: Props) => {
+    const navigate = useNavigate()
+    const location = useLocation()
     const customers: {
         icon: any
         title: string
+        link: string
     }[] =
      [
         {
@@ -24,7 +28,8 @@ const Sidebar = ({open}: Props) => {
         <path d="M4.8 6.40002C5.35379 6.40002 5.89514 6.2358 6.3556 5.92813C6.81605 5.62047 7.17494 5.18317 7.38686 4.67153C7.59879 4.1599 7.65424 3.59691 7.5462 3.05377C7.43816 2.51062 7.17149 2.01171 6.7799 1.62012C6.38831 1.22853 5.8894 0.961859 5.34625 0.853821C4.80311 0.745782 4.24012 0.801232 3.72849 1.01316C3.21685 1.22508 2.77955 1.58397 2.47189 2.04442C2.16422 2.50488 2 3.04623 2 3.60002C1.9998 3.96778 2.07209 4.33197 2.21274 4.67177C2.35338 5.01157 2.55962 5.32031 2.81966 5.58036C3.0797 5.8404 3.38845 6.04664 3.72825 6.18728C4.06805 6.32793 4.43224 6.40022 4.8 6.40002ZM6.72 7.20002H6.5125C5.97911 7.46073 5.39369 7.59747 4.8 7.60002C4.185 7.60002 3.61 7.45002 3.0875 7.20002H2.88C2.11624 7.20022 1.38381 7.50371 0.843752 8.04377C0.30369 8.58383 0.000198819 9.31626 0 10.08L0 10.8C0 11.1183 0.126428 11.4235 0.351472 11.6485C0.576515 11.8736 0.88174 12 1.2 12H8.4C8.71826 12 9.02349 11.8736 9.24853 11.6485C9.47357 11.4235 9.6 11.1183 9.6 10.8V10.08C9.5998 9.31626 9.29631 8.58383 8.75625 8.04377C8.21619 7.50371 7.48376 7.20022 6.72 7.20002Z" fill="#213F7D"/>
         </svg>
         ),
-        title: 'Users'
+        title: 'Users',
+        link: '/users',
         },
         {
             icon: (<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +37,8 @@ const Sidebar = ({open}: Props) => {
             <path d="M9.91995 7.20002H9.71245C9.17907 7.46073 8.59364 7.59747 7.99995 7.60002C7.38495 7.60002 6.80995 7.45002 6.28745 7.20002H6.07995C5.31619 7.20022 4.58376 7.50371 4.0437 8.04377C3.50364 8.58383 3.20015 9.31626 3.19995 10.08V10.8C3.19995 11.1183 3.32638 11.4235 3.55142 11.6485C3.77647 11.8736 4.08169 12 4.39995 12H11.6C11.9182 12 12.2234 11.8736 12.4485 11.6485C12.6735 11.4235 12.8 11.1183 12.8 10.8V10.08C12.7998 9.31626 12.4963 8.58383 11.9562 8.04377C11.4161 7.50371 10.6837 7.20022 9.91995 7.20002ZM7.99995 6.40002C8.55374 6.40002 9.09509 6.2358 9.55555 5.92813C10.016 5.62047 10.3749 5.18317 10.5868 4.67153C10.7987 4.1599 10.8542 3.59691 10.7462 3.05377C10.6381 2.51062 10.3714 2.01171 9.97985 1.62012C9.58826 1.22853 9.08935 0.961859 8.5462 0.853821C8.00306 0.745782 7.44007 0.801232 6.92844 1.01316C6.4168 1.22508 5.9795 1.58397 5.67184 2.04442C5.36417 2.50488 5.19995 3.04623 5.19995 3.60002C5.19975 3.96778 5.27204 4.33197 5.41269 4.67177C5.55333 5.01157 5.75957 5.32031 6.01961 5.58036C6.27966 5.8404 6.5884 6.04664 6.9282 6.18728C7.268 6.32793 7.63219 6.40022 7.99995 6.40002Z" fill="#213F7D"/>
             </svg>            
         ),
-        title: 'Guarantors'
+        title: 'Guarantors',
+        link: '/guarantors',
         },
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,14 +54,16 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                       
         ),
-        title: 'Loans'
+        title: 'Loans',
+        link: '/loans'
         },
         {
             icon: (<svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4137 3.79703L14.0006 2.3839C13.6879 2.07391 13.2653 1.89999 12.825 1.89999H6.09187C5.6525 1.89999 5.22797 2.07515 4.91625 2.3839L3.50312 3.79703H0V11.3881H1.9C2.4225 11.3881 2.84406 10.9666 2.84703 10.447H3.11719L5.62875 12.7151C6.54609 13.4603 7.81969 13.4781 8.76375 12.828C9.13484 13.1486 9.53562 13.3 9.98391 13.3C10.5242 13.3 11.0319 13.0803 11.4327 12.5875C12.0887 12.8458 12.8636 12.6647 13.3327 12.0887L14.1105 11.1298C14.2767 10.925 14.3806 10.6905 14.4341 10.447H16.153C16.1559 10.9666 16.5805 11.3881 17.1 11.3881H19V3.79703H15.4137ZM1.425 10.4381C1.16375 10.4381 0.95 10.2244 0.95 9.96312C0.95 9.70187 1.16375 9.48812 1.425 9.48812C1.68625 9.48812 1.9 9.70187 1.9 9.96312C1.9 10.2273 1.68625 10.4381 1.425 10.4381ZM13.0031 10.2333L12.2283 11.1892C12.1452 11.2902 11.9967 11.308 11.8928 11.2248L11.1833 10.6489L10.2927 11.7325C10.1145 11.9492 9.84734 11.875 9.75828 11.8037L8.66578 10.8686L8.20266 11.4386C7.79 11.9462 7.03891 12.0234 6.56094 11.6345L3.67234 9.02203H2.85V5.21906H4.09391L5.92563 3.39031C5.985 3.36656 6.03547 3.34578 6.09484 3.32203H7.77812L6.62922 4.37593C5.75641 5.17453 5.70594 6.52234 6.49859 7.38328C6.93797 7.86421 8.31547 8.6064 9.51188 7.5139L9.75531 7.29124L12.9675 9.89781C13.0684 9.98093 13.0833 10.1323 13.0031 10.2333ZM16.15 9.02203H14.0956C14.0273 8.9389 13.9502 8.86171 13.867 8.79343L10.8181 6.31749L11.1892 5.97906C11.3822 5.80093 11.397 5.50109 11.2189 5.30812L10.8953 4.96078C10.7172 4.76781 10.4173 4.75593 10.2244 4.93109L8.58563 6.43328C8.30359 6.69156 7.82266 6.71234 7.55844 6.43328C7.28234 6.13937 7.30609 5.68812 7.59406 5.42687L9.54156 3.64265C9.76125 3.44078 10.0462 3.33093 10.3431 3.33093L12.828 3.32499C12.8903 3.32499 12.9497 3.34874 12.9913 3.39328L14.823 5.22203H16.15V9.02203ZM17.575 10.4381C17.3137 10.4381 17.1 10.2244 17.1 9.96312C17.1 9.70187 17.3137 9.48812 17.575 9.48812C17.8363 9.48812 18.05 9.70187 18.05 9.96312C18.05 10.2273 17.8363 10.4381 17.575 10.4381Z" fill="#213F7D"/>
             </svg>                       
         ),
-        title: 'Decision Models'
+        title: 'Decision Models',
+        link: '/decision-models'
         },
         {
             icon: (<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +78,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                    
         ),
-        title: 'Savings'
+        title: 'Savings',
+        link: '/savings'
         },
         {
             icon: (<svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +101,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                                   
         ),
-        title: 'Loan Requests'
+        title: 'Loan Requests',
+        link: '/loan-requests'
         },
         {
             icon: (<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +118,8 @@ const Sidebar = ({open}: Props) => {
             </svg>
                                   
         ),
-        title: 'Whitelist'
+        title: 'Whitelist',
+        link: '/whitelist'
         },
         {
             icon: (<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,12 +134,14 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                                  
         ),
-        title: 'Karma'
+        title: 'Karma',
+        link: '/karma'
         },
     ]
     const business: {
         icon: any
         title: string
+        link: string
     }[] = [
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,7 +149,8 @@ const Sidebar = ({open}: Props) => {
             <path d="M14.5 4H12V2.5C12 1.7 11.3 1 10.5 1H5.5C4.7 1 4 1.7 4 2.5V4H1.5C0.7 4 0 4.7 0 5.5V8H16V5.5C16 4.7 15.3 4 14.5 4ZM10 4H6V3H10V4Z" fill="#213F7D"/>
             </svg>            
         ),
-        title: 'Organization'
+        title: 'Organization',
+        link: '/organization',
         },
         {
             icon: (<svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +172,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                        
         ),
-        title: 'Loan Products'
+        title: 'Loan Products',
+        link: '/loan-products',
         },
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -174,7 +189,8 @@ const Sidebar = ({open}: Props) => {
             </svg>
                         
         ),
-        title: 'Savings Products'
+        title: 'Savings Products',
+        link: '/savings-products',
         },
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -188,7 +204,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>            
         ),
-        title: 'Fees and Charges'
+        title: 'Fees and Charges',
+        link: '/fees-and-charges'
         },
         {
             icon: (<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -200,7 +217,8 @@ const Sidebar = ({open}: Props) => {
             <path d="M16 9.44503L11.9998 6.94476V8.94534H7.49988V9.9447H11.9998V11.9453L16 9.44503Z" fill="#213F7D"/>
             </svg>          
         ),
-        title: 'Transactions'
+        title: 'Transactions',
+        link: '/transactions',
         },
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +233,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                 
         ),
-        title: 'Services'
+        title: 'Services',
+        link: '/services'
         },
         {
             icon: (<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -230,7 +249,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                     
         ),
-        title: 'Service Account'
+        title: 'Service Account',
+        link: '/service-account'
         },
         {
             icon: (<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -245,7 +265,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                                 
         ),
-        title: 'Settlements'
+        title: 'Settlements',
+        link: '/settlements'
         },
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,12 +274,14 @@ const Sidebar = ({open}: Props) => {
             <path d="M8.6 3H7.4C7.2 3 7 3.2 7 3.4V9.6C7 9.8 7.2 10 7.4 10H8.6C8.8 10 9 9.8 9 9.6V3.4C9 3.2 8.8 3 8.6 3ZM5.6 7H4.4C4.2 7 4 7.2 4 7.4V9.6C4 9.8 4.2 10 4.4 10H5.6C5.8 10 6 9.8 6 9.6V7.4C6 7.2 5.8 7 5.6 7ZM14.6 2H13.4C13.2 2 13 2.2 13 2.4V9.6C13 9.8 13.2 10 13.4 10H14.6C14.8 10 15 9.8 15 9.6V2.4C15 2.2 14.8 2 14.6 2ZM11.6 5H10.4C10.2 5 10 5.2 10 5.4V9.6C10 9.8 10.2 10 10.4 10H11.6C11.8 10 12 9.8 12 9.6V5.4C12 5.2 11.8 5 11.6 5Z" fill="#213F7D"/>
             </svg>                                            
         ),
-        title: 'Reports'
+        title: 'Reports',
+        link: '/reports',
         },
     ]
     const settings: {
         icon: any
         title: string
+        link: string
     }[] = [
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -273,7 +296,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>            
         ),
-        title: 'Preferences'
+        title: 'Preferences',
+        link: '/preferences'
         },
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -288,7 +312,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                        
         ),
-        title: 'Fees and Pricing'
+        title: 'Fees and Pricing',
+        link: '/fees-and-pricing'
         },
         {
             icon: (<svg width="16" height="22" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -303,7 +328,8 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                                   
         ),
-        title: 'Audit Logs'
+        title: 'Audit Logs',
+        link: 'audit-logs'
         },
         {
             icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -318,13 +344,10 @@ const Sidebar = ({open}: Props) => {
             </defs>
             </svg>                                              
         ),
-        title: 'Systems Messages'
+        title: 'Systems Messages',
+        link: '/systems-messages'
         },
     ]
-
-    const [one, setOne] = useState<any>(0)
-    const [two, setTwo] = useState<any>()
-    const [three, setThree] = useState<any>()
 
     const log = React.useRef() as React.MutableRefObject<HTMLAnchorElement>;
 
@@ -333,6 +356,9 @@ const Sidebar = ({open}: Props) => {
         log.current.click()
         window.sessionStorage.setItem('user', 'unauthenticated')
     }
+    // const move = (value: number) => {
+    //     open();setOne(value); setTwo(null); setThree(null);
+    // }
   return (
     <div className={styles.side}>
         <div className={styles.side__head}>
@@ -348,7 +374,7 @@ const Sidebar = ({open}: Props) => {
             <h4>CUSTOMERS</h4>
             <ul>
                 {customers.map((item,index) => (
-                    <li key={index} className={index === one ? styles.active : ''} onClick={() => { open();setOne(index); setTwo(null); setThree(null)}} > {item.icon} {item.title} </li>
+                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() => {navigate(item.link)}} > {item.icon} {item.title} </li>
                 ))}
             </ul>
         </div>
@@ -356,7 +382,7 @@ const Sidebar = ({open}: Props) => {
             <h4>BUSINESSES</h4>
             <ul>
                 {business.map((item,index) => (
-                    <li key={index} className={index === two ? styles.active : ''} onClick={() =>  {open(); setOne(null); setTwo(index); setThree(null)}}> {item.icon} {item.title} </li>
+                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() =>  {navigate(item.link)}}> {item.icon} {item.title} </li>
                 ))}
             </ul>
         </div>
@@ -364,7 +390,7 @@ const Sidebar = ({open}: Props) => {
             <h4>SETTINGS</h4>
             <ul>
                 {settings.map((item,index) => (
-                    <li key={index} className={index === three ? styles.active : ''} onClick={() => {open(); setOne(null); setTwo(null); setThree(index)}}> {item.icon} {item.title} </li>
+                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() => {navigate(item.link)}}> {item.icon} {item.title} </li>
                 ))}
             </ul>
         </div>
