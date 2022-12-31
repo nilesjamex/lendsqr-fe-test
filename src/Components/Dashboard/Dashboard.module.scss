@@ -27,6 +27,10 @@
         margin-top: 2rem;
         @extend %flex-ac-jb;
         flex-wrap: wrap;
+        @media screen and (min-width: 1440px) {
+            justify-content: flex-start;
+            gap: 1.5rem;
+        }
         @include respondMax('desktop') {
         display: flex;
         justify-content: flex-start;
