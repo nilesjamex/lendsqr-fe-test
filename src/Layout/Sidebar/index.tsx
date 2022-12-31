@@ -374,7 +374,7 @@ const Sidebar = ({open}: Props) => {
             <h4>CUSTOMERS</h4>
             <ul>
                 {customers.map((item,index) => (
-                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() => {navigate(item.link)}} > {item.icon} {item.title} </li>
+                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() => {open(); navigate(item.link)}} > {item.icon} {item.title} </li>
                 ))}
             </ul>
         </div>
@@ -382,7 +382,7 @@ const Sidebar = ({open}: Props) => {
             <h4>BUSINESSES</h4>
             <ul>
                 {business.map((item,index) => (
-                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() =>  {navigate(item.link)}}> {item.icon} {item.title} </li>
+                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() =>  {open(); navigate(item.link)}}> {item.icon} {item.title} </li>
                 ))}
             </ul>
         </div>
@@ -390,7 +390,7 @@ const Sidebar = ({open}: Props) => {
             <h4>SETTINGS</h4>
             <ul>
                 {settings.map((item,index) => (
-                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() => {navigate(item.link)}}> {item.icon} {item.title} </li>
+                    <li key={index} className={location.pathname === item.link ? styles.active : ''} onClick={() => {open(); navigate(item.link)}}> {item.icon} {item.title} </li>
                 ))}
             </ul>
         </div>
