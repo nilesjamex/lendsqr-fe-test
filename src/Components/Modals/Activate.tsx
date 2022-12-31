@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
-import React, { ReactNode } from 'react'
+import React from 'react'
 import styles from './Modals.module.scss'
-import PropTypes from 'prop-types';
 
 interface Props {
   closeActivate?:any
