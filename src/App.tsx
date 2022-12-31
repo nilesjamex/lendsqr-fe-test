@@ -12,6 +12,7 @@ function App() {
     setactive(!active);
   };
   return (
+    <Router>
     <>
       {window.sessionStorage.getItem("user") === "authenticated" && (
         <Header open={open} />
@@ -31,18 +32,19 @@ function App() {
           )}
         </div>
         <div className="side">
-          <Router>
+          
             <Routes>
               <Route path="/" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/dashboard">
+              <Route path="/users" element={<Dashboard />} />
+              <Route path="/users">
                 <Route path=":Id" element={<User />} />
               </Route>
             </Routes>
-          </Router>
+          
         </div>
       </div>
     </>
+    </Router>
   );
 }
 
