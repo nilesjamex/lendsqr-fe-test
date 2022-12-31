@@ -4,12 +4,12 @@
 .blob {
     &__container {
         width: 100%;
-        height: calc(100vh - 6vh);
+        height: 100%;
         overflow: hidden;
         @extend %flex-ac-jc;
         padding: 0 1.5rem;
         @include respondMax("tablet2x") {
-            height: calc(100vh - 6vh);
+            height: calc(100vh - 50px);
         }
     }
     &__content {
