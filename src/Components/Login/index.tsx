@@ -41,7 +41,7 @@ const Login = () => {
         <div className={styles.login__logo}>
             <img className={styles.logo} src={Logo} alt="" />
             <div>
-              <img className={styles.pablo} width="600" height="338" src="https://res.cloudinary.com/dx9pt4ggx/image/upload/v1672442211/Lendsqr/pablo-sign-in_1_1_ipeaal.png" alt="" />
+              <img className={styles.pablo} width="600" height="338" src="https://res.cloudinary.com/dx9pt4ggx/image/upload/v1672504609/Lendsqr/pablo-sign-in-1-_1__oql1pq.webp" alt="" />
             </div>
             
         </div>
