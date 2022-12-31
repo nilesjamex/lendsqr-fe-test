@@ -31,13 +31,6 @@
             justify-content: flex-start;
             gap: 1.5rem;
         }
-        @include respondMax('desktop') {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        }
         @include respondMax('tablet2x') {
             display: flex;
             justify-content: flex-start;
@@ -53,6 +46,7 @@
             border: 1px solid rgba(33, 63, 125, 0.06);
             box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
             border-radius: 4px;
+            flex-grow: 1;
             @include respondMax('mobile3x') {
                 width: 100%;
             }
@@ -229,7 +223,7 @@
                     line-height: Max(1rem, 16px);
                     color: $text-1;
                     span {
-                        padding: 0.3rem;
+                        padding: 0.3rem 0.75rem;
                         width: Max(5rem, 80px);
                         height: Max(1.875rem, 30px);
                         background: $grey-2;
