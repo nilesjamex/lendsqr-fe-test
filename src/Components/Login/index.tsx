@@ -8,7 +8,7 @@ const Login = () => {
     const getIn = React.useRef() as React.MutableRefObject<HTMLAnchorElement>;
     useEffect(() => {
         if (window.sessionStorage.getItem('user') === 'authenticated') {
-            navigate('/dashboard')
+            navigate('/users')
           }
     })
     const navigate = useNavigate()
