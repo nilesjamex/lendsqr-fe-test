@@ -33,6 +33,7 @@
             &.pablo {
                 @include respondMax('desktop') {
                     width: 100%;
+                    object-fit: contain;
                 }
             }
         }
