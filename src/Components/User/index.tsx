@@ -72,14 +72,14 @@ const User = () => {
         <ContentLoader
         speed={2}
         width={170}
-        height={184}
+        height={14}
         viewBox="0 0 476 124"
         backgroundColor="#f3f3f3"
         foregroundColor="#ecebeb"
         {...props}
     >
-          <rect x="10" y="17" rx="4" ry="3" width="1700" height="20" />
-          <rect x="10" y="40" rx="3" ry="3" width="1700" height="10" />
+          <rect x="0" y="72" rx="3" ry="3" width="3800" height="60" /> 
+    {/* <rect x="0" y="88" rx="3" ry="3" width="1780" height="60" />  */}
         </ContentLoader>
       );
 
@@ -129,8 +129,8 @@ const User = () => {
                         </span>
                     </div> : <MyLoader /> }
                     <div>
-                    <h5>₦{data.accountBalance}</h5>
-                        <span>{profile.bvn}/Providus Bank</span>
+                    <h5>₦{profile.firstName ? data.accountBalance : <MyLoader />}</h5>
+                        <span>{profile.firstName ? profile.bvn : <MyLoader />}/Providus Bank</span>
                     </div>
                 </div>
             </div>
@@ -146,35 +146,35 @@ const User = () => {
                 <div className={styles.item}>
                     <div>
                     <h3>full Name</h3>
-                    <p>{profile.firstName} {profile.lastName}</p>
+                    {profile.firstName ? <p>{profile.firstName} {profile.lastName}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Phone Number</h3>
-                    <p>{profile.phoneNumber}</p>
+                    {profile.firstName ? <p>{profile.phoneNumber}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Email Address</h3>
-                    <p>{data.email}</p>
+                    {data.email ? <p>{data.email}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Bvn</h3>
-                    <p>{profile.bvn}</p>
+                    {profile.firstName ? <p>{profile.bvn}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Gender</h3>
-                    <p>{profile.gender}</p>
+                    {profile.firstName ? <p>{profile.gender}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Marital status</h3>
-                    <p>Single</p>
+                    {profile.firstName ? <p>Single</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Children</h3>
-                    <p>None</p>
+                    {profile.firstName ? <p>None</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Type of residence</h3>
-                    <p>Parent’s Apartment</p>
+                    {profile.firstName ? <p>Parent’s Apartment</p> : <MyLoader />}
                 </div>
                 </div>
             </div>
@@ -183,31 +183,31 @@ const User = () => {
                 <div className={styles.item}>
                     <div>
                     <h3>level of education</h3>
-                    <p>{education.level}</p>
+                    {education.level ? <p>{education.level}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>employment status</h3>
-                    <p>{education.employmentStatus}</p>
+                    {education.level ? <p>{education.employmentStatus}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>sector of employment</h3>
-                    <p>{education.sector}</p>
+                    {education.level ? <p>{education.sector}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Duration of employment</h3>
-                    <p>{education.duration}</p>
+                    {education.level ? <p>{education.duration}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>office email</h3>
-                    <p>{education.officeEmail}</p>
+                    {education.level ? <p>{education.officeEmail}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Monthly income</h3>
-                    <p>₦{education.monthlyIncome}</p>
+                    {education.level ? <p>₦{education.monthlyIncome}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>loan repayment</h3>
-                    <p>₦{education.loanRepayment}</p>
+                    {education.level ? <p>₦{education.loanRepayment}</p> : <MyLoader />}
                 </div>
                 </div>
             </div>
@@ -216,15 +216,15 @@ const User = () => {
                 <div className={styles.item}>
                     <div>
                     <h3>Twitter</h3>
-                    <p>{socials.twitter}</p>
+                    {socials.twitter ? <p>{socials.twitter}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Facebook</h3>
-                    <p>{socials.facebook}</p>
+                    {socials.twitter ? <p>{socials.facebook}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Instagram</h3>
-                    <p>{socials.instagram}</p>
+                    {socials.twitter ? <p>{socials.instagram}</p> : <MyLoader />}
                 </div>
                 </div>
             </div>
@@ -233,19 +233,19 @@ const User = () => {
                 <div className={styles.item}>
                     <div>
                     <h3>Full Name</h3>
-                    <p>{guarantor.firstName} {guarantor.lastName}</p>
+                    {guarantor.firstName ? <p>{guarantor.firstName} {guarantor.lastName}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Phone Number</h3>
-                    <p>{guarantor.phoneNumber}</p>
+                    {guarantor.firstName ? <p>{guarantor.phoneNumber}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Email Address</h3>
-                    <p>debby@gmail.com</p>
+                    {guarantor.firstName ? <p>debby@gmail.com</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Relationship</h3>
-                    <p>Sister</p>
+                    {guarantor.firstName ? <p>Sister</p> : <MyLoader />}
                 </div>
                 </div>
             </div>
@@ -254,19 +254,19 @@ const User = () => {
                 <div className={styles.item}>
                     <div>
                     <h3>Full Name</h3>
-                    <p>{guarantor.firstName} {guarantor.lastName}</p>
+                    {guarantor.firstName ? <p>{guarantor.firstName} {guarantor.lastName}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Phone Number</h3>
-                    <p>{guarantor.phoneNumber}</p>
+                    {guarantor.firstName ? <p>{guarantor.phoneNumber}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Email Address</h3>
-                    <p>debby@gmail.com</p>
+                    {guarantor.firstName ? <p>debby@gmail.com</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>Relationship</h3>
-                    <p>Sister</p>
+                    {guarantor.firstName ? <p>Sister</p> : <MyLoader />}
                 </div>
                 </div>
             </div>
