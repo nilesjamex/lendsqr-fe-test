@@ -5,6 +5,7 @@
     &__container {
         width: 100%;
         height: calc(100vh - 6vh);
+        overflow: hidden;
         @extend %flex-ac-jc;
         @include respondMax("tablet2x") {
             height: calc(100vh - 6vh);

@@ -6,8 +6,11 @@
         width: 100%;
         height: calc(100vh - 6vh);
         @extend %grid-items;
+        overflow: hidden;
         @include respondMax("tablet2x") {
          height: calc(100vh - 6vh);
+        overflow: hidden;
+
      }
     }
     width: 56px;
