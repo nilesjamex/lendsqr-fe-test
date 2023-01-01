@@ -203,7 +203,7 @@ const User = () => {
                 </div>
                 <div>
                     <h3>Monthly income</h3>
-                    {education.level ? <p>₦{education.monthlyIncome}</p> : <MyLoader />}
+                    {education.level ? <p>₦{education.monthlyIncome.slice(0, 1)} - ₦{education.monthlyIncome.slice(1, 2)}</p> : <MyLoader />}
                 </div>
                 <div>
                     <h3>loan repayment</h3>
